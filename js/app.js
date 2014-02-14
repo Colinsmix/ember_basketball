@@ -18,7 +18,7 @@ App.IndexRoute = Ember.Route.extend({
 App.TeamsRoute = Ember.Route.extend({
   model: function() {
     return Ember.$.getJSON('http://api.espn.com/v1/sports/basketball/nba/teams?apikey=dekwsxn4ux9feuvbw5keun2e').then(function(data) {
-      return data;
+      return data.sports[0].leagues[0].teams;
     });
   }
 });
@@ -34,7 +34,7 @@ App.TeamRoute = Ember.Route.extend({
 App.PlayersRoute = Ember.Route.extend({
   model: function() {
     return Ember.$.getJSON('http://api.espn.com/v1/sports/basketball/nba/athletes?apikey=dekwsxn4ux9feuvbw5keun2e').then(function(data) {
-      return data;
+      return data.sports[0].leagues[0].athletes;
     });
   }
 });
