@@ -46,3 +46,12 @@ App.PlayerRoute = Ember.Route.extend({
     });
   }
 });
+
+// Controllers
+App.TeamsController = Ember.ArrayController.extend({
+  sortProperties: ['location']
+});
+
+App.PlayersController = Ember.ArrayController.extend({
+  sortProperties: ['lastName']
+});

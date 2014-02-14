@@ -10,33 +10,71 @@
 </head>
 <body>
   <script type="text/x-handlebars">
-    <h2>Ember Basketball</h2>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">Ember Basketball</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+      </ul>
 
+      <section class="top-bar-section">
+      <!-- Left Nav Section -->
+        <ul class="left">
+          <li>{{#link-to 'teams'}}Teams{{/link-to}}</li>
+        </ul>
+        <ul class="left">
+          <li>{{#link-to 'players'}}Players{{/link-to}}</li>
+        </ul>
+      </section>
+    </nav>
     {{outlet}}
   </script>
 
   <script type="text/x-handlebars" id="index">
-    {{#link-to 'teams'}}TEAMS{{/link-to}}
-    {{#link-to 'players'}}PLAYERS{{/link-to}}
   </script>
 
   <script type="text/x-handlebars" data-template-name='teams'>
-    <ul>
-      {{#each}}
-        <li>{{location}} {{name}}</li>
-      {{/each}}
-    </ul>
+    <div class='row'>
+      <div class="small-6 large-6 columns">
+        <ul>
+          {{#each}}
+            <li>{{#link-to 'team' this}}{{location}} {{name}}{{/link-to}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="small-6 large-6 columns">
+        {{outlet}}
+      </div>
+    </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name='team'>
-
+    <ul>
+      <li>{{location}} {{name}}</li>
+      <li><a {{bind-attr href='links.web.teams.href'}}>WEBSITE</a></li>
+    </ul>
   </script>
 
   <script type="text/x-handlebars" data-template-name='players'>
+    <div class='row'>
+      <div class="small-6 large-6 columns">
+        <ul>
+          {{#each}}
+            <li>{{#link-to 'player' this}}{{fullName}}{{/link-to}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="small-6 large-6 columns">
+        {{outlet}}
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name='player'>
     <ul>
-      {{#each}}
-        <li>{{fullName}}</li>
-      {{/each}}
+      <li>{{fullName}}</li>
+      <li><a {{bind-attr href='links.web.athletes.href'}}>WEBSITE</a></li>
     </ul>
   </script>
 
