@@ -36,7 +36,7 @@ App.IndexRoute = Ember.Route.extend({
 // NBA Routes
 App.NbateamsRoute = Ember.Route.extend({
   model: function() {
-    return Ember.$.getJSON('http://api.espn.com/v1/sports/basketball/nba/teams?apikey=dekwsxn4ux9feuvbw5keun2e').then(function(data) {
+    return Ember.$.getJSON('http://api.espn.com/v1/sports/basketball/nba/teams?enable=venues&apikey=dekwsxn4ux9feuvbw5keun2e').then(function(data) {
       return data.sports[0].leagues[0].teams;
     });
   }
@@ -44,7 +44,7 @@ App.NbateamsRoute = Ember.Route.extend({
 
 App.NbateamRoute = Ember.Route.extend({
   model: function(params) {
-    return Ember.$.getJSON('http://api.espn.com/v1/sports/basketball/nba/teams/' + params.team_id + '?apikey=dekwsxn4ux9feuvbw5keun2e').then(function(data) {
+    return Ember.$.getJSON('http://api.espn.com/v1/sports/basketball/nba/teams/' + params.team_id + '?enable=venues&apikey=dekwsxn4ux9feuvbw5keun2e').then(function(data) {
       return data;
     });
   }
@@ -69,7 +69,7 @@ App.NbaplayerRoute = Ember.Route.extend({
 // MLB Routes
 App.MlbteamsRoute = Ember.Route.extend({
   model: function() {
-    return Ember.$.getJSON('http://api.espn.com/v1/sports/baseball/mlb/teams?apikey=dekwsxn4ux9feuvbw5keun2e').then(function(data) {
+    return Ember.$.getJSON('http://api.espn.com/v1/sports/baseball/mlb/teams?enable=venues&apikey=dekwsxn4ux9feuvbw5keun2e').then(function(data) {
       return data.sports[0].leagues[0].teams;
     });
   }
@@ -77,7 +77,7 @@ App.MlbteamsRoute = Ember.Route.extend({
 
 App.MlbteamRoute = Ember.Route.extend({
   model: function(params) {
-    return Ember.$.getJSON('http://api.espn.com/v1/sports/baseball/mlb/teams/' + params.team_id + '?apikey=dekwsxn4ux9feuvbw5keun2e').then(function(data) {
+    return Ember.$.getJSON('http://api.espn.com/v1/sports/baseball/mlb/teams/' + params.team_id + '?enable=venues&apikey=dekwsxn4ux9feuvbw5keun2e').then(function(data) {
       return data;
     });
   }
@@ -102,7 +102,7 @@ App.MlbplayerRoute = Ember.Route.extend({
 // NFL Routes
 App.NflteamsRoute = Ember.Route.extend({
   model: function() {
-    return Ember.$.getJSON('http://api.espn.com/v1/sports/football/nfl/teams?apikey=dekwsxn4ux9feuvbw5keun2e').then(function(data) {
+    return Ember.$.getJSON('http://api.espn.com/v1/sports/football/nfl/teams?enable=venues&apikey=dekwsxn4ux9feuvbw5keun2e').then(function(data) {
       return data.sports[0].leagues[0].teams;
     });
   }
@@ -110,7 +110,7 @@ App.NflteamsRoute = Ember.Route.extend({
 
 App.NflteamRoute = Ember.Route.extend({
   model: function(params) {
-    return Ember.$.getJSON('http://api.espn.com/v1/sports/football/nfl/teams/' + params.team_id + '?apikey=dekwsxn4ux9feuvbw5keun2e').then(function(data) {
+    return Ember.$.getJSON('http://api.espn.com/v1/sports/football/nfl/teams/' + params.team_id + '?enable=venues&apikey=dekwsxn4ux9feuvbw5keun2e').then(function(data) {
       return data;
     });
   }

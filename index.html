@@ -75,6 +75,11 @@
   <script type="text/x-handlebars" data-template-name='nbateam'>
     <h1>{{location}} {{name}}</h1>
     <ul>
+      {{#each venues}}
+        <li>Stadium: {{name}}</li>
+        <li>Location: {{city}}, {{state}}</li>
+        <li>Capacity: {{capacity}}</li>
+      {{/each}}
       <li><a {{bind-attr href='links.web.teams.href'}} target="_blank">WEBSITE</a></li>
     </ul>
   </script>
@@ -148,6 +153,10 @@
   <script type="text/x-handlebars" data-template-name='mlbteam'>
     <h1>{{location}} {{name}}</h1>
     <ul>
+      {{#each venues}}
+        <li>Stadium: {{name}}</li>
+        <li>Location: {{city}}, {{state}}</li>
+      {{/each}}
       <li><a {{bind-attr href='links.web.teams.href'}} target="_blank">WEBSITE</a></li>
     </ul>
   </script>
@@ -221,6 +230,11 @@
   <script type="text/x-handlebars" data-template-name='nflteam'>
     <h1>{{location}} {{name}}</h1>
     <ul>
+      {{#each venues}}
+        <li>Stadium: {{name}}</li>
+        <li>Location: {{city}}, {{state}}</li>
+        <li>Capacity: {{capacity}}</li>
+      {{/each}}
       <li><a {{bind-attr href='links.web.teams.href'}} target="_blank">WEBSITE</a></li>
     </ul>
   </script>
